@@ -50,11 +50,15 @@ This bar graph shows that the female sex has higher results of alive but, the ma
   
 
 
-
-
   
 ## Numerical results
 
+``` {r include = TRUE, echo = FALSE}
+table2 <- xtabs(~result + sex, data=kRdata)
+rowPerc(table2)
+colPerc(table2)
+```
+The table shows that there are higher rates of being alive in the female sex with 98.7% alive and 1.4% dead whereas the male sex has higher rates of death at 3% and 97% alive. 
 
 ## Inferential results 
 
