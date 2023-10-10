@@ -41,14 +41,13 @@ The main hypothesis is that the results of dead and alive are strongly correlate
 ``` {r include = TRUE, echo = FALSE}
 ggplot(kRdata, aes(x = sex, fill = result)) +
 geom_bar(position = "dodge") +
-labs(title = "Dying explained by Sex",x = "Sex",y = "Result") +
+labs(title = "Dying explained by Sex",x = "sex",y = "result") +
 theme(legend.title = element_blank(),
 plot.title = element_text(hjust = 0.5,size = 18))
 ```
 
-
+This bar graph shows that the female sex has higher results of alive but, the male sex has lower results of being alive and higher results of being dead. This indicates that there is a difference in the results of Covid cases in Korea between the two sexes.
   
-
 
 
 
