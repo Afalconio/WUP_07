@@ -38,12 +38,19 @@ The main hypothesis is that the results of dead and alive are strongly correlate
 
 
 ## Graphical results - use ggplot commands to do this  
-``` {r include = TRUE, echo = FALSE}
-ggplot(kRdata, aes(x = sex, fill = result)) +
-geom_bar(position = "dodge") +
-labs(title = "Dying explained by Sex",x = "sex",y = "result") +
-theme(legend.title = element_blank(),
-plot.title = element_text(hjust = 0.5,size = 18))
+```{r}
+dd2 <- kRdata %>% group_by(result,Sex) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=result,y=count,fill=Sex))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=result,y=prcnt*100,fill=Sex)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
 This bar graph shows that the female sex has higher results of alive but, the male sex has lower results of being alive and higher results of being dead. This indicates that there is a difference in the results of Covid cases in Korea between the two sexes.
@@ -62,8 +69,13 @@ The table shows that there are higher rates of being alive in the female sex wit
 
 ## Inferential results 
 
-
-
+``` {r include = TRUE, echo = FALSE}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+The Chi-squared test and the fisher exact test highlights the disparity between the sexes of male and female in regards to being alive or dead. The p-value of 0.0009 confirms that there is a significant difference in the data with males about 2 times more likely than females to die from covid at least in the case of Korea.
 
 ## Conclusions
+
 
