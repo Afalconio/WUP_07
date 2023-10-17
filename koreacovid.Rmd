@@ -70,9 +70,9 @@ The table shows that there are higher rates of being alive in the female sex wit
 ## Inferential results 
 
 ``` {r include = TRUE, echo = FALSE}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
 ```
 The Chi-squared test and the fisher exact test highlights the disparity between the sexes of male and female in regards to being alive or dead. The p-value of 0.0009 confirms that there is a significant difference in the data with males about 2 times more likely than females to die from covid at least in the case of Korea.
 
